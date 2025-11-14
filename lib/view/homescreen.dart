@@ -147,12 +147,8 @@ class _HomescreenState extends State<Homescreen> {
                                 titlescreen,
                                 contentscreen,
                               );
-                              context.read<Homescreencontroler>().update(
-                                id: docId,
-                                ids: idscreen,
-                                titles: titlescreen,
-                                contents: contentscreen,
-                              );
+
+                              log(docId);
                             },
                             icon: const Icon(Icons.edit, color: Colors.blue),
                           ),
@@ -337,10 +333,16 @@ class _HomescreenState extends State<Homescreen> {
                   if (idcontroler.text.isNotEmpty &&
                       titlecontroler.text.isNotEmpty &&
                       contentcontroler.text.isNotEmpty) {
+                    context.read<Homescreencontroler>().update(
+                      id: docId,
+                      ids: currentId,
+                      titles: currentTitle,
+                      contents: currentContent,
+                    );
                     // Clear controllers
-                    idcontroler.clear();
-                    titlecontroler.clear();
-                    contentcontroler.clear();
+                    // idcontroler.clear();
+                    // titlecontroler.clear();
+                    // contentcontroler.clear();
 
                     Navigator.pop(context);
                   }
